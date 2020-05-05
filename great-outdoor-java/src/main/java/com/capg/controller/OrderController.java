@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capg.beans.*;
@@ -28,13 +29,25 @@ public class OrderController {
 	
 	@GetMapping(value="/products")
 	public List<Order> viewProducts() {
-		return orderService.retrieve();
+		return orderService.retrieveProducts();
 	}
 	
-	@PostMapping(value="/product/new",consumes= {"application/json"})
-	public String addProduct(@RequestBody Product product) throws OutOfStockException
+	@GetMapping(value="/orders")
+	public List<Order> viewOrders() {
+		return orderService.retrieveOrders();
+	}
+	
+	@GetMapping(value="/orders/{id}")
+	public void removeOrders(@RequestParam int id) {
+		orderService.removeOrder(id);
+	}
+
+	
+	@PostMapping(value="/create_order/new",consumes= {"application/json"})
+	public String createOrder(@RequestBody Order order) throws OutOfStockException
 	{
-		orderService.createOrder(product,0);
+		
+		orderService.createOrder(order.getProduct(),order.getQuantity());
 		return "product added successfully";
 	}
 

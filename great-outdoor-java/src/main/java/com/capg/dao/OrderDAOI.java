@@ -13,6 +13,7 @@ public interface OrderDAOI {
 	public void createOrder(Product p,int qty);
 	public Product findProductById(int id);
 	public Order findOrderById(int id);
-	public void delete(int id);
-	public List retrieve();
+	public void removeOrder(int id);
+	public List retrieveProducts();
+	public List retrieveOrders();
 }

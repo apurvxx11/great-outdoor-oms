@@ -19,7 +19,7 @@ public class GreatOutdoorJavaApplication implements CommandLineRunner {
 	}
 
 	public void run(String... args) throws Exception{
-		order.createOrder(new Product(1,"Bag",12,12000,"adidas",2,"assets/images/f_ball.jpg"),11);
+		//order.createOrder(new Product(1,"Bag",12,12000,"adidas",2,"assets/images/f_ball.jpg"),11);
 		
 	}
 

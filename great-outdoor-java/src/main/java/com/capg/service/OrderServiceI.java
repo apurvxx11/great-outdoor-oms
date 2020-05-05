@@ -10,7 +10,9 @@ import java.util.List;
 public interface OrderServiceI {
 	
 	public void createOrder(Product p,int qty) throws OutOfStockException;
-	public Product findProductByID(int id) throws ProductNotFoundException;
-	public List retrieve();
+	public Product findProductByID(int id);
+	public List retrieveProducts();
+	public List retrieveOrders();
+	public void removeOrder(int id);
 	
 }

@@ -40,15 +40,21 @@ public class OrderDAOImpl implements OrderDAOI {
 	}
 	
 	@Override
-	public void delete(int id) {
+	public void removeOrder(int id) {
 	Order o=em.find(Order.class, id); 
 	System.out.println(o.getOrder_ID() + "this order is deleted");
 	em.remove(o);
 	}
 	
 	@Override
-	public List retrieve() {
+	public List retrieveProducts() {
 		Query q = em.createQuery("from Product p");
+		return q.getResultList();
+	}
+	
+	@Override
+	public List retrieveOrders() {
+		Query q = em.createQuery("from Order o");
 		return q.getResultList();
 	}
 

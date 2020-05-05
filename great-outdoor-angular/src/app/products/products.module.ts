@@ -10,6 +10,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { RouterModule } from '@angular/router';
+import { OrderPlaceComponent } from '../orders/order-place/order-place.component';
+
 
 @NgModule({
   declarations: [ProductListComponent, ProductShowComponent],
@@ -18,9 +20,8 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild(
       [
         { path: 'products', component: ProductListComponent },
-        { path: 'products/:id',
-          component: ProductShowComponent
-      }
+        { path: 'products/:id', component: ProductShowComponent },
+        { path: 'place-order/:id', component: OrderPlaceComponent}
       ]
     ),
     CommonModule,

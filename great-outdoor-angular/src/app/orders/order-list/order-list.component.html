@@ -3,25 +3,26 @@
      fxLayoutGap="10px">
     <div fxFlex>
         <div>
-            <h3><span>Place your order</span></h3>
+            <h3><span>Currently available</span></h3>
         </div>
         <hr>
     </div>
     <div fxFlex>
-        <mat-grid-list cols="2" rowHeight="200px" >
+        <mat-grid-list cols="2" rowHeight="200px" *ngFor="let order of orders">
             <mat-grid-tile>
-              <img src= {{product_curr.img_path}} alt="" height="200px">
+              <img src= {{order.product.img_path}} alt="" height="200px">
               <mat-grid-tile-footer>
-                  <h2>  {{product_curr.name}} </h2>&nbsp;
-                  <h2> |  {{product_curr.manufacturer}}  |</h2>
+                  <h2>  {{order.product.name}} </h2>&nbsp;
+                  <h2> |  {{order.product.manufacturer}}  |</h2>
                 </mat-grid-tile-footer>
             </mat-grid-tile>
 
             <mat-grid-tile>
-                <h2>Enter the quantity</h2>
+                <h2>Order ID = {{order.order_ID}}</h2>
                 <br>
+                <h3>Req Quantity = {{order.quantity}}</h3>
                 <mat-grid-tile-footer>
-                    <a mat-button [routerLink] ="['/place-order', product_curr.product_ID]"> Place order</a>
+                    
                     <a mat-button>Remove</a>
                   </mat-grid-tile-footer>
               </mat-grid-tile>

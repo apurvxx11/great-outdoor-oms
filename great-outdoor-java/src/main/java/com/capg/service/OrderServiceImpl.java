@@ -30,15 +30,23 @@ public class OrderServiceImpl implements OrderServiceI{
 	}
 
 	@Override
-	public Product findProductByID(int id) throws ProductNotFoundException {
+	public Product findProductByID(int id){
 		return order.findProductById(id);
 	}
 	
 	@Override
-	public List retrieve() {
-		return order.retrieve();
+	public List retrieveProducts() {
+		return order.retrieveProducts();
 	}
 	
-	
+	@Override
+	public List retrieveOrders() {
+		return order.retrieveOrders();
+	}
 
+	@Override
+	public void removeOrder(int id) {
+		order.removeOrder(id);
+	}
+	
 }

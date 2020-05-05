@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Order } from './order';
-import { OrdersComponent } from './orders/orders.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductsModule } from './products/products.module';
 import { ProductShowComponent } from './products/product-show/product-show.component';
-ProductsModule
+import { OrderListComponent } from './orders/order-list/order-list.component';
+import { OrderPlaceComponent } from './orders/order-place/order-place.component';
+
 
 
 const routes: Routes = [
   { path: 'products', component: ProductListComponent },
-  { path: 'orders', component: OrdersComponent},
+  { path: 'orders', component: OrderListComponent},
   { path: 'products/:id',component: ProductShowComponent },
+  { path: 'place-order/:id', component: OrderPlaceComponent},
   { path: '', redirectTo: '/products', pathMatch: 'full'}
 ];
 

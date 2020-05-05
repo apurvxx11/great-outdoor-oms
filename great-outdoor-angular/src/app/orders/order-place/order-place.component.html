@@ -1,3 +1,8 @@
+<div class="col-md-6">
+    <h2 class="text-center">Add Student</h2>
+  
+   
+</div>
 <div class="container"
      fxLayout="column"
      fxLayoutGap="10px">
@@ -19,9 +24,19 @@
 
             <mat-grid-tile>
                 <h2>Enter the quantity</h2>
+                <form (ngSubmit)="createOrder()">
+
+                  <div>
+                    <input type="number" placeholder="enter id" id="quantity" name="quantity" [(ngModel)]="order.quantity"  class="form-control" >
+                  </div>
+                  
+                  <div>
+                  <input type="submit" value="Place order" class="btn btn-danger">
+                </div>
+                </form>
                 <br>
                 <mat-grid-tile-footer>
-                    <a mat-button [routerLink] ="['/place-order', product_curr.product_ID]"> Place order</a>
+                    <!-- <a mat-button [routerLink] ="['/place-order', product_curr.product_ID]"> Place order</a> -->
                     <a mat-button>Remove</a>
                   </mat-grid-tile-footer>
               </mat-grid-tile>
