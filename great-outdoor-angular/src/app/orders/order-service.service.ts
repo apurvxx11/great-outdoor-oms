@@ -29,4 +29,10 @@ export class OrderServiceService {
 
    return this.http.post(url,order,{responseType:'text'});
  }
+
+ removeOrder(id: number): Observable<any>{
+  let url = "http://localhost:1187//remove_order/";
+  console.log(id);
+  return this.http.delete(url + id.toString());
+}
 }

@@ -14,7 +14,6 @@ import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
 import { FormsModule } from '@angular/forms';
 
-
 ProductsModule
 @NgModule({
   declarations: [

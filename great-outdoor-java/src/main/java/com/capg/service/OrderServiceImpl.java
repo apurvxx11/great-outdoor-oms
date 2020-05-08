@@ -2,6 +2,8 @@ package com.capg.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.capg.beans.Order;
 import com.capg.beans.Product;
 import com.capg.dao.OrderDAOI;
 import com.capg.exceptions.*;
@@ -28,6 +30,16 @@ public class OrderServiceImpl implements OrderServiceI{
 		}
 		
 	}
+	
+	@Override
+	public void removeOrder(int id) throws OrderNotFoundException{
+		if(order.findOrderById(id)!= null) {
+			order.removeOrder(id);
+		}
+		throw new OrderNotFoundException("Order does not exist");
+	}
+	
+	
 
 	@Override
 	public Product findProductByID(int id){
@@ -44,9 +56,6 @@ public class OrderServiceImpl implements OrderServiceI{
 		return order.retrieveOrders();
 	}
 
-	@Override
-	public void removeOrder(int id) {
-		order.removeOrder(id);
-	}
+	
 	
 }

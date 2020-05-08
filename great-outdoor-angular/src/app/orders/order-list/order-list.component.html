@@ -1,51 +1,35 @@
-<div class="container"
-     fxLayout="column"
-     fxLayoutGap="10px">
-    <div fxFlex>
-        <div>
-            <h3><span>Currently available</span></h3>
-        </div>
-        <hr>
-    </div>
-    <div fxFlex>
-        <mat-grid-list cols="2" rowHeight="200px" *ngFor="let order of orders">
-            <mat-grid-tile>
-              <img src= {{order.product.img_path}} alt="" height="200px">
-              <mat-grid-tile-footer>
-                  <h2>  {{order.product.name}} </h2>&nbsp;
-                  <h2> |  {{order.product.manufacturer}}  |</h2>
-                </mat-grid-tile-footer>
-            </mat-grid-tile>
+<br>
+<div class="container">
 
-            <mat-grid-tile>
-                <h2>Order ID = {{order.order_ID}}</h2>
-                <br>
-                <h3>Req Quantity = {{order.quantity}}</h3>
-                <mat-grid-tile-footer>
-                    
-                    <a mat-button>Remove</a>
-                  </mat-grid-tile-footer>
-              </mat-grid-tile>
-          </mat-grid-list>
+    <div class="form-group">
+        <input type="text" [(ngModel)]="query" class="form-control" name="search" placeholder="Filter by entering keywords">
+        &nbsp;
     </div>
-  
-    <!-- <div fxFlex>
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>
-                    <h3>{{prod.name | uppercase }}</h3>
-                </mat-card-title>
+
+</div>
+
+<div class="container" >
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Manufacturer</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders | filter : query">
+                <td>{{ order.order_ID }}</td>
+                <td>{{ order.product.name }} </td>
+                <td>{{ order.product.manufacturer}}</td>
+                <td>{{ order.quantity }}</td>
+                <td><img src= "{{ order.product.img_path }}" alt="" height="200px"></td>
+                <td *ngIf="order.order_ID"><button class="btn btn-info" (click)="removeOrder(order.order_ID)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
     
-                    <img mat-card-image src="{{ prod.img_path }}" alt="{{ prod.name }}">
-            </mat-card-header>
-            <mat-card-content>
-                <p>{{ prod.manufacturer }}</p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button>LIKE</button>
-                <button mat-button>SHARE</button>
-            </mat-card-actions>
-        </mat-card>
-    </div> -->
-
+    
 </div>

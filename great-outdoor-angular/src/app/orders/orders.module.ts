@@ -11,11 +11,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ProductsModule } from '../products/products.module';
 import { FormsModule } from '@angular/forms';
 import { OrderPlaceComponent } from './order-place/order-place.component';
+import { FilterPipe } from './filter.pipe';
 
 
 @NgModule({
   declarations: [OrderListComponent,
-  OrderPlaceComponent],
+  OrderPlaceComponent,
+  FilterPipe],
   imports: [
     CommonModule,
     FormsModule,

@@ -1,15 +1,11 @@
-
 package com.capg.exceptions;
 
-import org.springframework.web.bind.annotation.ResponseStatus;
-
-public class OutOfStockException extends Exception{
-	
-	
+public class OrderNotFoundException extends Exception{
 	
 	String msg;
-	
-	public OutOfStockException(String msg) {
+
+	public OrderNotFoundException(String msg) {
+		super();
 		this.msg = msg;
 	}
 

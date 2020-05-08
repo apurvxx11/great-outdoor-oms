@@ -10,6 +10,7 @@ import { Order } from '../order';
 })
 export class OrderListComponent implements OnInit {
 
+  query: string;
   orders: Order[];
   constructor(private order_service: OrderServiceService) { }
 
@@ -21,6 +22,17 @@ export class OrderListComponent implements OnInit {
     {
       console.log("error occured",error);
     });
+  }
+
+  removeOrder(id: number){
+    this.order_service.removeOrder(id).subscribe(()=>{
+      alert('Order with' + id + 'is deleted');
+    },
+     (err)=>{
+       console.log(err);
+     }
+     )
+     location.reload();
   }
 
 }

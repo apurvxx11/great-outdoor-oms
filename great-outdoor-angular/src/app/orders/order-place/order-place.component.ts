@@ -42,10 +42,11 @@ export class OrderPlaceComponent implements OnInit {
     
     this.orderService.createOrder(this.order).subscribe(data=>
       {
-        alert("order added");
+        alert("Order placed succesfully");
       },
       error=>
       {
+        alert('OutOfStock | Product not available as required');
         console.log("error occured",error);
       }
     );

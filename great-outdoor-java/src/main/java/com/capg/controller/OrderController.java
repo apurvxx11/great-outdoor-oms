@@ -1,6 +1,7 @@
 package com.capg.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,8 +38,8 @@ public class OrderController {
 		return orderService.retrieveOrders();
 	}
 	
-	@GetMapping(value="/orders/{id}")
-	public void removeOrders(@RequestParam int id) {
+	@DeleteMapping(value="/remove_order/{id}")
+	public void removeOrders(@PathVariable int id) {
 		orderService.removeOrder(id);
 	}
 
